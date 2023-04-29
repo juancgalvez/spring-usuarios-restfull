@@ -46,6 +46,8 @@ mvn spring-boot:run
 
 Para probar con Postman importe [este archivo](https://github.com/juancgalvez/spring-usuarios-restfull/blob/master/Usuarios.postman_collection.json).
 
+Al autenticar el usuario para solicitar el token, un script guarda en una variable global el JWT regresado. Esta variable se toma al momento de enviar las demás peticiones de mantenimiento del usuario, agregandolo en el encabezado Authorization como Bearer.
+
 
 ### Acceso a UI de SWAGGER:
 
