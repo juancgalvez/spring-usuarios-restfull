@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.persistence.EntityExistsException;
@@ -26,6 +27,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @EnableConfigurationProperties(RsaJwtKeyProperties.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @SpringBootTest(properties = {
         "rsa.jwt.keys.private-key=classpath:certs/private.pem",
         "rsa.jwt.keys.public-key=classpath:certs/public.pem"

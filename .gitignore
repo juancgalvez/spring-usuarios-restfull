@@ -3,6 +3,15 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+.git
+.gitignore
+create.sql
+datos.sql
+Diagrama Actividad Autenticacion de Usuario.pdf
+Diagrama de Base de Datos.drawio
+Obtencion Token.csv
+Obtencion Token.pdf
+Servicio REST de Usuarios.pdf
 
 ### STS ###
 .apt_generated
@@ -31,3 +40,4 @@ build/
 
 ### VS Code ###
 .vscode/
+
