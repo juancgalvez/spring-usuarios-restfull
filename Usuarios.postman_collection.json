@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "96d3461e-b66b-4d17-8cd0-0b34df27575e",
+		"name": "Nisum - Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Lista de usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/api/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario por Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/api/usuarios/email/jcgalvezv@localhost.cl",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios",
+						"email",
+						"jcgalvezv@localhost.cl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario por Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/api/usuarios/id/{{uuid}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios",
+						"id",
+						"{{uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonResponse = pm.response.json();\r",
+							"pm.globals.set(\"uuid\", jsonResponse.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"340fb962-758a-498c-b4b5-6b7f9a54615c\",\r\n    \"name\": \"Steve Jobs\",\r\n    \"email\": \"steve.jobs@apple.com.cl\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"jwt\": \"jwt\",\r\n    \"isactive\": true,\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"citycode\": \"11\",\r\n            \"countrycode\": \"57\"\r\n        },\r\n        {\r\n            \"number\": \"87654321012\",\r\n            \"citycode\": \"22\",\r\n            \"countrycode\": \"503\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/api/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar usuario por email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/api/usuarios/email/steve.jobs@apple.com.cl",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios",
+						"email",
+						"steve.jobs@apple.com.cl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Steve Jobsy\",\r\n    \"email\": \"steve.jobs@apple.com.cl\",\r\n    \"password\": \"P@a$w0rd\",\r\n    \"isactive\": false,\r\n    \"created\": \"2023-04-26T23:12:15.830+00:00\",\r\n    \"modified\": \"2023-04-26T23:24:13.866+00:00\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"12345679\",\r\n            \"citycode\": \"11\",\r\n            \"countrycode\": \"57\"\r\n        },\r\n        {\r\n            \"number\": \"87654321\",\r\n            \"citycode\": \"22\",\r\n            \"countrycode\": \"503\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/api/usuarios/{{uuid}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"api",
+						"usuarios",
+						"{{uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitar token (Autenticar Usuario)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "P@ssw0rd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jcgalvezv@localhost.cl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
